@@ -7,6 +7,7 @@ class Beverage
     protected $price;
     protected $temperature;
     protected $name;
+    protected static int $numberOfDrinks = 0;
 
     public function __construct(string $color, float $price, string $temperature = 'cold', string $name)
     {
@@ -14,6 +15,7 @@ class Beverage
         $this->price       = $price;
         $this->temperature = $temperature;
         $this->name        = $name;
+        self::$numberOfDrinks ++;
     }
 
     public function getInfo(): string
@@ -37,6 +39,11 @@ class Beverage
 
         return $this;
     }
+
+    public function getNumberOfDrinks()
+    {
+        return 'There are ' . self::$numberOfDrinks . ' drinks in total.';
+    }
 }
 
 class Beer extends Beverage
@@ -44,11 +51,8 @@ class Beer extends Beverage
     private $alcoholpercentage;
 
     public function __construct(string $color, float $price, string $temperature = 'cold', string $name, float $alcoholpercentage)
-    {
-        $this->color       = $color;
-        $this->price       = $price;
-        $this->temperature = $temperature;
-        $this->name        = $name;
+    {        
+        parent::__construct($color, $price, $temperature, $name);
         $this->alcoholpercentage = $alcoholpercentage;
     }
 
@@ -61,9 +65,13 @@ class Beer extends Beverage
     {
         return 'Hi, I\'m ' . $this->name . ' and I have an alcohol percentage of ' . $this->alcoholpercentage . '%. I\'m ' . $this->color . ' in color.</br>';
     }
+
+
 }
 
 $duvel = new Beer('blond', 3.50, 'cold', 'duvel', 8.5);
+$chouffe = new Beer('blond', 3.50, 'cold', 'chouffe', 8.5);
+$karmeliet = new Beer('blond', 3.50, 'cold', 'karmeliet', 8.5);
 
 echo ($duvel->getInfo());
 $duvel->setColor('light');
@@ -71,3 +79,4 @@ echo ($duvel->getInfo());
 echo ($duvel->beerInfo());
 echo ($duvel->order());
 echo ($duvel->getAlcoholPercentage());
+echo ($duvel->getNumberOfDrinks());
