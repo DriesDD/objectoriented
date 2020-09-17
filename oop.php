@@ -54,7 +54,7 @@ class Beer extends Beverage
 
     public function beerInfo(): string
     {
-        return 'Hi I\'m ' . $this->name . ' and I have an alcohol percentage of ' . $this->alcoholpercentage . '%. I\'m.'. $this->color .'</br>';
+        return 'Hi, I\'m ' . $this->name . ' and I have an alcohol percentage of ' . $this->alcoholpercentage . '%. I\'m '. $this->color .' in color.</br>';
     }
 
 }
