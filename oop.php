@@ -17,10 +17,10 @@ class Beverage
 
     public function getInfo(): string
     {
-        return $this->name .' is ' . $this->temperature . ' and ' . $this->color . '</br>';
+        return $this->name . ' is ' . $this->temperature . ' and ' . $this->color . '</br>';
     }
 
-    public function getColor() : string
+    public function getColor(): string
     {
         return $this->color;
     }
@@ -31,7 +31,6 @@ class Beverage
 
         return $this;
     }
-
 }
 
 class Beer extends Beverage
@@ -54,15 +53,14 @@ class Beer extends Beverage
 
     public function beerInfo(): string
     {
-        return 'Hi, I\'m ' . $this->name . ' and I have an alcohol percentage of ' . $this->alcoholpercentage . '%. I\'m '. $this->color .' in color.</br>';
+        return 'Hi, I\'m ' . $this->name . ' and I have an alcohol percentage of ' . $this->alcoholpercentage . '%. I\'m ' . $this->color . ' in color.</br>';
     }
-
 }
 
-$duvel = new Beer('blond',3.50,'cold','duvel',8.5);
+$duvel = new Beer('blond', 3.50, 'cold', 'duvel', 8.5);
 
-echo ($duvel -> getInfo());
-$duvel -> setColor('light');
-echo ($duvel -> getInfo());
-echo ($duvel -> beerInfo());
-echo ($duvel -> getAlcoholPercentage());
+echo ($duvel->getInfo());
+$duvel->setColor('light');
+echo ($duvel->getInfo());
+echo ($duvel->beerInfo());
+echo ($duvel->getAlcoholPercentage());
