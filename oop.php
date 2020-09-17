@@ -2,6 +2,7 @@
 
 class Beverage
 {
+    const BARNAME = 'De Molotov';
     protected $color;
     protected $price;
     protected $temperature;
@@ -18,6 +19,11 @@ class Beverage
     public function getInfo(): string
     {
         return $this->name . ' is ' . $this->temperature . ' and ' . $this->color . '</br>';
+    }
+
+    public function order(): string
+    {
+        return $this->name . ' has been ordered at ' . self::BARNAME . '.</br>';
     }
 
     public function getColor(): string
@@ -63,4 +69,5 @@ echo ($duvel->getInfo());
 $duvel->setColor('light');
 echo ($duvel->getInfo());
 echo ($duvel->beerInfo());
+echo ($duvel->order());
 echo ($duvel->getAlcoholPercentage());
